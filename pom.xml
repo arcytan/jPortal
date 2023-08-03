@@ -26,6 +26,7 @@
         <module>user-service</module>
         <module>permission-service</module>
         <module>boot-starter</module>
+        <module>boot-starter/jpa-starter</module>
     </modules>
 
     <dependencyManagement>
@@ -39,8 +40,22 @@
             <dependency>
                 <groupId>com.mysql</groupId>
                 <artifactId>mysql-connector-j</artifactId>
+                <version>8.1.0</version>
                 <scope>runtime</scope>
             </dependency>
+            <dependency>
+                <groupId>jakarta.inject</groupId>
+                <artifactId>jakarta.inject-api</artifactId>
+                <version>2.0.1</version>
+            </dependency>
+
+            <!-- 自身的包依赖 -->
+            <dependency>
+                <groupId>cn.arcy.jportal.starter</groupId>
+                <artifactId>jpa-starter</artifactId>
+                <version>${jportal.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

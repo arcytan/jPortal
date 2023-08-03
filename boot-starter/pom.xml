@@ -10,6 +10,21 @@
     </parent>
 
     <artifactId>boot-starter</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>jportal-boot-autoconfigure</module>
+        <module>jpa-starter</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>cn.arcy.jportal.autoconfigure</groupId>
+                <artifactId>jportal-boot-autoconfigure</artifactId>
+                <version>${jportal.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

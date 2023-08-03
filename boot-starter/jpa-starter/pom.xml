@@ -5,20 +5,26 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.arcy.jportal</groupId>
-        <artifactId>jportal-parent</artifactId>
+        <artifactId>boot-starter</artifactId>
         <version>0.0.1</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>permission-service</artifactId>
+    <groupId>cn.arcy.jportal.starter</groupId>
+    <artifactId>jpa-starter</artifactId>
+    <packaging>pom</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>cn.arcy.jportal.autoconfigure</groupId>
+            <artifactId>jportal-boot-autoconfigure</artifactId>
+        </dependency>
+    </dependencies>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-    <dependencies>
-
-    </dependencies>
 
 </project>
