@@ -9,7 +9,11 @@
         <version>0.0.1</version>
     </parent>
 
+    <name>permission-service</name>
+    <groupId>cn.arcy.jportal.permission</groupId>
     <artifactId>permission-service</artifactId>
+    <version>${jportal.version}</version>
+    <packaging>jar</packaging>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

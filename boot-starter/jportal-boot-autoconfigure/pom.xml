@@ -9,6 +9,7 @@
         <version>0.0.1</version>
     </parent>
 
+    <name>jportal-autoconfigure</name>
     <groupId>cn.arcy.jportal.autoconfigure</groupId>
     <artifactId>jportal-boot-autoconfigure</artifactId>
     <version>0.0.1</version>

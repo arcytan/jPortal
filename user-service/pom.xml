@@ -11,8 +11,11 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
+    <name>user-service</name>
+    <groupId>cn.arcy.jportal.user</groupId>
     <artifactId>user-service</artifactId>
-    <version>${jportal.version}</version>
+    <version>0.0.1</version>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
@@ -33,12 +36,12 @@
         <dependency>
             <groupId>cn.arcy.jportal.starter</groupId>
             <artifactId>jpa-starter</artifactId>
-            <!--<exclusions>
+            <exclusions>
                 <exclusion>
                     <groupId>jakarta.inject</groupId>
                     <artifactId>jakarta.inject-api</artifactId>
                 </exclusion>
-            </exclusions>-->
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>jakarta.inject</groupId>

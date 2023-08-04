@@ -10,6 +10,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
+    <name>jpa-starter</name>
     <groupId>cn.arcy.jportal.starter</groupId>
     <artifactId>jpa-starter</artifactId>
     <packaging>pom</packaging>

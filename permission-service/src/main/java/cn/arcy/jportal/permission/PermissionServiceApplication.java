@@ -1,4 +1,4 @@
-package cn.arcy.jportal;
+package cn.arcy.jportal.permission;
 
 public class PermissionServiceApplication {
     public static void main(String[] args) {
