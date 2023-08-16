@@ -1,2 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration = \
-cn.arcy.jportal.autoconfigure.jpa.JpaAutoConfiguration
