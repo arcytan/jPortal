@@ -29,6 +29,8 @@
         <module>boot-starter</module>
         <module>boot-starter/jpa-starter</module>
         <module>boot-starter/jportal-boot-autoconfigure</module>
+        <module>portal-admin-api</module>
+        <module>portal-tools</module>
     </modules>
 
     <dependencyManagement>
@@ -50,6 +52,16 @@
                 <artifactId>jakarta.inject-api</artifactId>
                 <version>2.0.1</version>
             </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>1.5.5.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>1.5.5.Final</version>
+            </dependency>
 
             <!-- 自身的包依赖 -->
             <dependency>
@@ -57,7 +69,27 @@
                 <artifactId>jpa-starter</artifactId>
                 <version>${jportal.version}</version>
             </dependency>
+            <dependency>
+                <groupId>cn.arcy.jportal.user</groupId>
+                <artifactId>user-service</artifactId>
+                <version>${jportal.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/cn.hutool/hutool-core -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-core</artifactId>
+                <version>5.8.23</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/io.springfox/springfox-boot-starter -->
+            <!-- Swagger -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>3.0.0</version>
+            </dependency>
 
+
+            <!-- 数据库DDL管理 -->
             <dependency>
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-mysql</artifactId>
