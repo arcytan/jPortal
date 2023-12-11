@@ -30,7 +30,6 @@
         <module>boot-starter/jpa-starter</module>
         <module>boot-starter/jportal-boot-autoconfigure</module>
         <module>portal-admin-api</module>
-        <module>portal-tools</module>
     </modules>
 
     <dependencyManagement>
