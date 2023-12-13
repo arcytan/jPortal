@@ -4,7 +4,10 @@ spring:
     username: root
     password: 123456
   jpa:
-      show-sql: true
+    show-sql: true
+  data:
+    redis:
+      host: 127.0.0.1
 jwt:
   private.key: classpath:rsa_private_key.pem
   public.key: classpath:rsa_public_key.pem

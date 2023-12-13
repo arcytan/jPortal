@@ -17,6 +17,9 @@ import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * 处理JWT无授权的验证异常
+ */
 @Slf4j
 public class BearTokenAccessDeniedHandler  implements AccessDeniedHandler {
     private String realmName;

@@ -18,6 +18,9 @@ import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * JWT验证失败的异常处理
+ */
 @Slf4j
 public class BearerTokenAuthenticationEntryPoint implements AuthenticationEntryPoint {
     private String realmName;
