@@ -1,16 +1,13 @@
-package cn.arcy.jportal.user.domain.entity;
+package cn.arcy.jportal.portal.vo;
 
-import jakarta.persistence.*;
+
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Data
-@Entity
-@Table(name = "users")
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class UserVo {
+
     Long id;
 
     String username;
@@ -18,8 +15,6 @@ public class User {
     String nickname;
 
     String email;
-
-    String password;
 
     Boolean disabled;
 
