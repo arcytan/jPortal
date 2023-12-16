@@ -8,6 +8,7 @@ import cn.arcy.jportal.portal.mapstruct.AuthMapStruct;
 import cn.arcy.jportal.portal.security.AuthenticationService;
 import cn.arcy.jportal.portal.security.UserDetail;
 import cn.arcy.jportal.portal.util.HttpResult;
+import cn.arcy.jportal.portal.util.SessionContextUtil;
 import cn.arcy.jportal.portal.vo.AuthVo;
 import cn.hutool.core.util.ObjectUtil;
 import io.swagger.annotations.Api;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
 import java.util.Set;
 
 @Api("用户认证")
@@ -41,8 +43,13 @@ public class AuthenticationController {
 
     @PostMapping("/login")
     @ApiOperation("登陆")
-    public AuthVo login(@Validated AuthDto authDto)
+    public AuthVo login(@Validated AuthDto authDto, Authentication authentication)
     {
+        //已登录用户不能重复登陆
+        if (ObjectUtil.isNotNull(authentication) && authentication.isAuthenticated()) {
+            throw new RuntimeException("用户已登录！");
+        }
+
         UserDetail userDetail = authenticationService.login(authDto.getUsername(), authDto.getPassword());
         AuthVo authVo = authMapStruct.toAuthVo(userDetail.getUserEntity());
         authVo.setToken(userDetail.getToken());
@@ -64,5 +71,13 @@ public class AuthenticationController {
         Set<String> keys = redisTemplate.keys(jwtPrefix + "*");
         redisTemplate.delete(keys);
         return HttpResult.builder().code(HttpStatus.OK.value()).message("登出成功！").build();
+    }
+
+    @PostMapping("/token")
+    @ApiOperation("获取新的token")
+    public HttpResult<?> token(Authentication authentication)
+    {
+        Map<String, Object> tokenData = Map.of("token", authenticationService.generateToken(authentication));
+        return HttpResult.Ok("获取成功！", tokenData);
     }
 }

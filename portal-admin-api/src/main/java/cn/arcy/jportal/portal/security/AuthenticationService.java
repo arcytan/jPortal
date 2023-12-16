@@ -51,7 +51,7 @@ public class AuthenticationService {
         if (ObjectUtil.isNull(authenticate)) {
             throw new AuthenticationException("用户名或密码错误！");
         }
-        String token = generateToken(authenticate, tokenExpiry);
+        String token = generateToken(authenticate);
         UserDetail userDetail = (UserDetail)authenticate.getPrincipal();
         userDetail.setToken(token);
         //用户登陆后，将token记录到redis中，用于登出的时候做判断
@@ -75,5 +75,10 @@ public class AuthenticationService {
                 .build();
 
         return this.jwtEncoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
+    }
+
+    public String generateToken(Authentication authentication)
+    {
+        return generateToken(authentication, tokenExpiry);
     }
 }

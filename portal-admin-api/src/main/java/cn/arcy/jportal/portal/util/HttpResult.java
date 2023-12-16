@@ -1,6 +1,7 @@
 package cn.arcy.jportal.portal.util;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import jakarta.annotation.Nullable;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,16 @@ public class HttpResult<T> implements Serializable {
     T data;
 
     Map<String, Object> fields = new HashMap<>();
+
+    public static HttpResult<?> Ok(String message, @Nullable Map<String, Object> data)
+    {
+        return HttpResult.builder().code(HttpStatus.OK.value()).message(message).data(data).build();
+    }
+
+    public static HttpResult<?> Unavailable(String message, @Nullable Map<String, Object> data)
+    {
+        return HttpResult.builder().code(HttpStatus.SERVICE_UNAVAILABLE.value()).message(message).data(data).build();
+    }
 
     @JsonAnyGetter
     public Map<String, Object> getFields()
