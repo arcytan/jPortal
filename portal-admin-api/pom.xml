@@ -73,6 +73,10 @@
             <artifactId>user-service</artifactId>
         </dependency>
         <dependency>
+            <groupId>cn.arcy.jportal.permission</groupId>
+            <artifactId>permission-service</artifactId>
+        </dependency>
+        <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-core</artifactId>
         </dependency>
