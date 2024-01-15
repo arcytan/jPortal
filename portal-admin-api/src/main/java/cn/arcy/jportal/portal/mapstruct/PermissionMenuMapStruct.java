@@ -5,7 +5,7 @@ import cn.arcy.jportal.portal.dto.MenuDto;
 import cn.arcy.jportal.portal.vo.MenuVo;
 import org.mapstruct.*;
 
-@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
+//@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
 public interface PermissionMenuMapStruct {
     PermissionMenu toEntity(MenuDto menuDto);
 

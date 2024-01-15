@@ -1,12 +1,15 @@
 package cn.arcy.jportal.permission.enums;
 
-public enum MenuType {
+import lombok.Getter;
+
+@Getter
+public enum MenuType implements AbstractEnum<MenuType>{
     PAGE(1, "页面"),
     BUTTON(2, "按钮");
 
-    public final int code;
+    final int code;
 
-    public final String desc;
+    final String desc;
 
     MenuType(int code, String desc)
     {

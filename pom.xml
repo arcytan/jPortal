@@ -82,7 +82,7 @@
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-core</artifactId>
-                <version>5.8.23</version>
+                <version>5.8.25</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/io.springfox/springfox-boot-starter -->
             <!-- Swagger -->
@@ -94,11 +94,6 @@
 
 
             <!-- 数据库DDL管理 -->
-            <dependency>
-                <groupId>org.flywaydb</groupId>
-                <artifactId>flyway-mysql</artifactId>
-                <version>${flyway.version}</version>
-            </dependency>
             <dependency>
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-mysql</artifactId>
