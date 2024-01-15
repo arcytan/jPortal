@@ -27,9 +27,19 @@ public class HttpResult<T> implements Serializable {
         return HttpResult.builder().code(HttpStatus.OK.value()).message(message).data(data).build();
     }
 
+    public static HttpResult<?> Ok(String message)
+    {
+        return Ok(message, null);
+    }
+
     public static HttpResult<?> Unavailable(String message, @Nullable Map<String, Object> data)
     {
         return HttpResult.builder().code(HttpStatus.SERVICE_UNAVAILABLE.value()).message(message).data(data).build();
+    }
+
+    public static HttpResult<?> Unavailable(String message)
+    {
+        return Unavailable(message, null);
     }
 
     @JsonAnyGetter

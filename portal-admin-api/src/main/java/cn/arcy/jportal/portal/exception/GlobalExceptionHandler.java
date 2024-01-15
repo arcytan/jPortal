@@ -11,6 +11,7 @@ import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
@@ -30,17 +31,6 @@ import java.util.stream.Stream;
 @Slf4j
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<HttpResult<?>> runtimeException(RuntimeException e)
-    {
-        return ResponseEntity.internalServerError().body(
-                HttpResult.builder()
-                        .code(HttpStatus.INTERNAL_SERVER_ERROR.value())
-                        .message(e.getMessage())
-                        .build()
-        );
-    }
-
     @ExceptionHandler(AuthenticationException.class)
     public ResponseEntity<HttpResult<?>> authenticationException(AuthenticationException e)
     {
@@ -52,13 +42,13 @@ public class GlobalExceptionHandler {
         );
     }
 
-    @ExceptionHandler(HttpException.class)
-    public ResponseEntity<HttpResult<?>> httpException(HttpException e)
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<HttpResult<?>> httpMessageNotReadableException(HttpMessageNotReadableException e)
     {
-        return ResponseEntity.status(e.getStatus()).body(
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
                 HttpResult.builder()
-                        .code(e.getStatus().value())
-                        .message(e.getMessage())
+                        .code(HttpStatus.BAD_REQUEST.value())
+                        .message("入参格式有误！")
                         .build()
         );
     }
@@ -126,5 +116,28 @@ public class GlobalExceptionHandler {
                                 .data(errorResults)
                                 .build()
                 );
+    }
+
+    @ExceptionHandler(HttpException.class)
+    public ResponseEntity<HttpResult<?>> httpException(HttpException e)
+    {
+        return ResponseEntity.status(e.getStatus()).body(
+                HttpResult.builder()
+                        .code(e.getStatus().value())
+                        .message(e.getMessage())
+                        .build()
+        );
+    }
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<HttpResult<?>> runtimeException(RuntimeException e)
+    {
+        log.error("[{}]:{}", e.getMessage(), e.getClass());
+        return ResponseEntity.internalServerError().body(
+                HttpResult.builder()
+                        .code(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                        .message(e.getMessage())
+                        .build()
+        );
     }
 }
