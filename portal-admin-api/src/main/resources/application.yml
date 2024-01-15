@@ -8,6 +8,8 @@ spring:
   data:
     redis:
       host: 127.0.0.1
+      repositories:
+        enabled: false
 jwt:
   private.key: classpath:rsa_private_key.pem
   public.key: classpath:rsa_public_key.pem
