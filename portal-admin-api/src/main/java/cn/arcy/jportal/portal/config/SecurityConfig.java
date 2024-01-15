@@ -73,6 +73,9 @@ public class SecurityConfig {
                     oauth2.authenticationEntryPoint(new BearerTokenAuthenticationEntryPoint());
                     oauth2.accessDeniedHandler(new BearTokenAccessDeniedHandler());
                 })
+                .cors(corsConfigurer -> {
+                    corsConfigurer.configurationSource(corsConfigurationSource());
+                })
                 .addFilterAfter(redisJwtAuthenticationFilter, BearerTokenAuthenticationFilter.class)
                 .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .exceptionHandling((exceptions) -> {
