@@ -3,9 +3,9 @@ package cn.arcy.jportal.portal.dto;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import jakarta.validation.constraints.NotEmpty;
-import lombok.Data;
+import lombok.Value;
 
-@Data
+@Value
 @ApiModel("用户登陆参数")
 public class AuthDto {
 

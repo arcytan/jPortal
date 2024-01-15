@@ -5,10 +5,10 @@ import io.swagger.annotations.ApiModelProperty;
 import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
-import lombok.Data;
+import lombok.Value;
 import org.hibernate.validator.constraints.Length;
 
-@Data
+@Value
 @ApiModel("用户新增模型")
 public class UserDto {
 

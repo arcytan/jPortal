@@ -13,7 +13,7 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface UserMapStruct {
 
-    User fromUserDto(UserDto userDto);
+    User toEntity(UserDto userDto);
 
     UserVo toUserVo(User user);
 

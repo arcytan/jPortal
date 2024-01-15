@@ -21,6 +21,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -43,7 +44,7 @@ public class AuthenticationController {
 
     @PostMapping("/login")
     @ApiOperation("登陆")
-    public AuthVo login(@Validated AuthDto authDto, Authentication authentication)
+    public AuthVo login(@Validated @RequestBody AuthDto authDto, Authentication authentication)
     {
         //已登录用户不能重复登陆
         if (ObjectUtil.isNotNull(authentication) && authentication.isAuthenticated()) {
