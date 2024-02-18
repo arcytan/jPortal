@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -36,9 +36,9 @@ public class PermissionMenu {
     private Boolean disabled = false;
 
     @Column(name = "created_at")
-    private Instant createdAt;
+    private LocalDateTime createdAt;
 
     @Column(name = "updated_at")
-    private Instant updatedAt;
+    private LocalDateTime updatedAt;
 
 }
