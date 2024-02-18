@@ -5,8 +5,13 @@ import cn.arcy.jportal.portal.dto.MenuDto;
 import cn.arcy.jportal.portal.vo.MenuVo;
 import org.mapstruct.*;
 
-//@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
+@Mapper(
+        unmappedTargetPolicy = ReportingPolicy.IGNORE,
+        componentModel = MappingConstants.ComponentModel.SPRING,
+        config = MapStructConfig.class
+)
 public interface PermissionMenuMapStruct {
+
     PermissionMenu toEntity(MenuDto menuDto);
 
     MenuDto toMenuDto(PermissionMenu permissionMenu);
@@ -15,4 +20,5 @@ public interface PermissionMenuMapStruct {
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     PermissionMenu partialUpdate(MenuDto menuDto, @MappingTarget PermissionMenu permissionMenu);
+
 }

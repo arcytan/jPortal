@@ -1,4 +1,4 @@
-package cn.arcy.jportal.permission.utils;
+package cn.arcy.jportal.common.utils;
 
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.TypeUtil;
