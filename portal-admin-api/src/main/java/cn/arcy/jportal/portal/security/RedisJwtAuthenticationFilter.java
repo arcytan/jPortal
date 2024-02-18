@@ -36,7 +36,6 @@ public class RedisJwtAuthenticationFilter extends OncePerRequestFilter {
             Jwt jwt = (Jwt) authentication.getPrincipal();
             String token = (String) redisTemplate.opsForValue().get(RedisKey.getJwtTokenKey(jwt.getClaim(JwtClaimNames.CLIENT_ID), jwt.getTokenValue()));
             if (StrUtil.isEmpty(token)) {
-                System.out.println("dddddddddddddddddddd");
                 throw new InvalidBearerTokenException("用户认证失败！");
             }
         }

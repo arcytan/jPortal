@@ -2,14 +2,10 @@ package cn.arcy.jportal.portal.util;
 
 import cn.arcy.jportal.portal.exception.UserNotFoundException;
 import cn.arcy.jportal.portal.security.UserDetail;
-import cn.arcy.jportal.user.domain.entity.User;
-import cn.hutool.core.util.StrUtil;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.oauth2.jwt.Jwt;
-
-import java.util.Optional;
 
 public class SessionContextUtil {
 

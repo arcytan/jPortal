@@ -15,7 +15,9 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestResponseBody
 /**
  * {@link RequestResponseBodyMethodProcessor} 的装饰类
  * 用于包装一个合适的API返回格式
+ * 目前已经被取消使用，改用@RestControllerAdvice实现
  */
+@Deprecated
 @Slf4j
 public class RequestResponseBodyMethodHandler implements HandlerMethodReturnValueHandler {
 
