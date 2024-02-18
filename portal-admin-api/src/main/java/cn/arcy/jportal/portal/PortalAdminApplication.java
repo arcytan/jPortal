@@ -13,7 +13,6 @@ import java.time.format.DateTimeFormatter;
 @SpringBootApplication
 @ComponentScan({"cn.arcy.jportal"})
 public class PortalAdminApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(PortalAdminApplication.class);
     }

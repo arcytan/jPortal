@@ -31,7 +31,7 @@ public class MenuDto implements Serializable {
      * @see MenuType#code
      */
     @ApiModelProperty("菜单类型")
-    byte type = 1;
+    MenuType type = MenuType.PAGE;
 
     @ApiModelProperty("菜单地址")
     @NotEmpty(message = "菜单地址不能为空！")
