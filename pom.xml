@@ -30,6 +30,7 @@
         <module>boot-starter/jpa-starter</module>
         <module>boot-starter/jportal-boot-autoconfigure</module>
         <module>portal-admin-api</module>
+        <module>common</module>
     </modules>
 
     <dependencyManagement>
@@ -78,6 +79,11 @@
                 <artifactId>permission-service</artifactId>
                 <version>${jportal.version}</version>
             </dependency>
+            <dependency>
+                <groupId>cn.arcy.jportal.common</groupId>
+                <artifactId>common</artifactId>
+                <version>${jportal.version}</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/cn.hutool/hutool-core -->
             <dependency>
                 <groupId>cn.hutool</groupId>
@@ -90,6 +96,13 @@
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-boot-starter</artifactId>
                 <version>3.0.0</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.reflections/reflections -->
+            <dependency>
+                <groupId>org.reflections</groupId>
+                <artifactId>reflections</artifactId>
+                <version>0.10.2</version>
             </dependency>
 
 
