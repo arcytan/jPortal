@@ -14,7 +14,7 @@ public class EnumUtil {
                 .filter(Objects::nonNull)
                 .filter(o -> o.getCode() == code)
                 .findFirst()
-                .orElseThrow();
+                .orElse(null);
     }
 
     public static <T extends AbstractEnum> Map<Integer, String> codesMap(Class<T> enumClass)

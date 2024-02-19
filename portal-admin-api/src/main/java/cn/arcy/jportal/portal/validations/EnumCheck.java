@@ -11,6 +11,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Constraint(validatedBy = {EnumCheck.EnumCheckValidator.class})
+@Inherited
 public @interface EnumCheck {
     String message() default "字段格式错误";
 
@@ -30,6 +31,7 @@ public @interface EnumCheck {
 
         @Override
         public boolean isValid(String value, ConstraintValidatorContext context) {
+
             return false;
         }
     }

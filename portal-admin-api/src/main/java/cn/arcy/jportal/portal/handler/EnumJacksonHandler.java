@@ -17,6 +17,9 @@ import org.springframework.util.ObjectUtils;
 
 import java.io.IOException;
 
+/**
+ * 处理枚举类的json序列化和反序列化
+ */
 @JsonComponent
 public class EnumJacksonHandler {
 

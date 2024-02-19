@@ -11,6 +11,7 @@ import cn.arcy.jportal.portal.vo.MenuVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import jakarta.inject.Inject;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -28,9 +29,8 @@ public class MenuController {
 
     @PostMapping("/")
     @ApiOperation("新增菜单")
-    public MenuVo save(@RequestBody MenuDto menuDto)
+    public MenuVo add(@Validated @RequestBody MenuDto menuDto)
     {
-        System.out.println(menuDto);
         PermissionMenu entity = menuService.insert(menuMapStruct.toEntity(menuDto));
         return menuMapStruct.toMenuVo(entity);
     }

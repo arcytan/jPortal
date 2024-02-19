@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Value;
 import org.hibernate.validator.constraints.Length;
 
@@ -23,7 +24,7 @@ public class MenuDto implements Serializable {
     String name;
 
     @ApiModelProperty("父级ID")
-    @Min(0L)
+    @Min(value = 0L, message = "父菜单ID不能少于0！")
     Long parentId = 0L;
 
 
@@ -31,6 +32,7 @@ public class MenuDto implements Serializable {
      * @see MenuType#code
      */
     @ApiModelProperty("菜单类型")
+    @NotNull(message = "菜单类型获取失败！")
     MenuType type = MenuType.PAGE;
 
     @ApiModelProperty("菜单地址")

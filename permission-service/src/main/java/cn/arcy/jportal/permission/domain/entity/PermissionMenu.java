@@ -35,10 +35,10 @@ public class PermissionMenu {
     @Column(name = "disabled", nullable = false)
     private Boolean disabled = false;
 
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
+    @Column(name = "created_at", insertable = false, updatable = false)
+    private LocalDateTime createdAt = LocalDateTime.now();
 
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
+    @Column(name = "updated_at", insertable = false, updatable = false)
+    private LocalDateTime updatedAt = LocalDateTime.now();
 
 }
