@@ -7,13 +7,12 @@ CREATE TABLE `permission_menus` (
     `parent_id` bigint NOT NULL DEFAULT '0' COMMENT '上一级菜单，0为根菜单',
     `type` tinyint(1) NOT NULL DEFAULT '1' COMMENT '菜单类型，1-页面，2-按钮',
     `url` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '访问路径',
-    `level` tinyint NOT NULL DEFAULT '0' COMMENT '层级，0代表最顶级',
+    `sort` tinyint DEFAULT '1',
     `disabled` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否被禁，1-禁用，0-启用',
-    `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-    `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='后台菜单表';
-
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='后台菜单表';
 /*
  *资源表
  */

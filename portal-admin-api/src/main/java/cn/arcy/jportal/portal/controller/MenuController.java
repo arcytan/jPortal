@@ -31,6 +31,7 @@ public class MenuController {
     @ApiOperation("新增菜单")
     public MenuVo add(@Validated @RequestBody MenuDto menuDto)
     {
+        System.out.println(menuMapStruct.toEntity(menuDto).getType());
         PermissionMenu entity = menuService.insert(menuMapStruct.toEntity(menuDto));
         return menuMapStruct.toMenuVo(entity);
     }

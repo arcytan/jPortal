@@ -20,9 +20,6 @@ public class MenuVo {
     @ApiModelProperty("上级ID")
     private Long parentId;
 
-    @ApiModelProperty("等级")
-    private Byte level;
-
     @ApiModelProperty("菜单类型")
     private MenuType type;
 

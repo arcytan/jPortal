@@ -2,6 +2,7 @@ package cn.arcy.jportal.permission.service;
 
 import cn.arcy.jportal.common.exceptions.RecordNotExistException;
 import cn.arcy.jportal.permission.domain.entity.PermissionMenu;
+import cn.arcy.jportal.permission.enums.MenuType;
 import cn.arcy.jportal.permission.repository.PermissionMenuRepository;
 import jakarta.inject.Inject;
 import org.springframework.data.domain.Example;
@@ -17,8 +18,18 @@ public class MenuService {
 
     public PermissionMenu insert(PermissionMenu permissionMenu)
     {
-        //根据parentId，计算录入菜单的层级
-        permissionMenu.setLevel(calculateMenuLevel(permissionMenu.getParentId()));
+        //父级菜单不能少于1！
+        if (permissionMenu.getParentId().compareTo(0L) < 0) {
+            permissionMenu.setParentId(0L);
+        }
+
+        if (permissionMenu.getParentId().compareTo(0L) > 0) {
+            Optional<PermissionMenu> menuOptional = find(permissionMenu.getParentId());
+            PermissionMenu parentMenu = menuOptional.orElseThrow(() -> new RecordNotExistException("父级菜单不存在！"));
+            if (parentMenu.getType() == MenuType.BUTTON) {
+                throw new IllegalArgumentException("按钮菜单不能添加子菜单！");
+            }
+        }
         return menuRepository.save(permissionMenu);
     }
 
@@ -55,19 +66,5 @@ public class MenuService {
             throw new RecordNotExistException("存在子菜单，请先删除子菜单！");
         }
         menuRepository.deleteById(id);
-    }
-
-    protected Byte calculateMenuLevel(Long parentId)
-    {
-        //parentId为0，则为一级菜单
-        if (parentId.compareTo(0L) <= 0) {
-            return 1;
-        }
-        Optional<PermissionMenu> menuOptional = find(parentId);
-        if (menuOptional.isEmpty()) {
-            throw new RecordNotExistException("父菜单不存在！");
-        }
-        //子等级为父菜单+1
-        return (byte) (menuOptional.get().getLevel() + 1);
     }
 }

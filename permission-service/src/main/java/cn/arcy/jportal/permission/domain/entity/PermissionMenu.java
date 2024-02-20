@@ -29,8 +29,8 @@ public class PermissionMenu {
     @Column(name = "url")
     private String url;
 
-    @Column(name = "level", nullable = false)
-    private Byte level;
+    @Column(name = "sort", nullable = false)
+    private Integer sort = 1;
 
     @Column(name = "disabled", nullable = false)
     private Boolean disabled = false;

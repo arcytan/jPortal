@@ -9,14 +9,12 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Value;
 import org.hibernate.validator.constraints.Length;
 
-import java.io.Serializable;
-
 /**
  * DTO for {@link cn.arcy.jportal.permission.domain.entity.PermissionMenu}
  */
 @Value
-@ApiModel("菜单传输参数")
-public class MenuDto implements Serializable {
+@ApiModel("菜单更新参数")
+public class MenuUpdateDto {
 
     @ApiModelProperty("菜单名称")
     @NotEmpty(message = "菜单名称不能为空！")
@@ -26,13 +24,6 @@ public class MenuDto implements Serializable {
     @ApiModelProperty("父级ID")
     @Min(value = 0L, message = "父菜单ID不能少于0！")
     Long parentId = 0L;
-
-    /**
-     * @see MenuType#code
-     */
-    @ApiModelProperty("菜单类型")
-    @NotNull(message = "菜单类型获取失败！")
-    MenuType type = MenuType.PAGE;
 
     @ApiModelProperty("菜单地址")
     @NotEmpty(message = "菜单地址不能为空！")
