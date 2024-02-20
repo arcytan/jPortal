@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS `users` (
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO users(`username`, `nickname`, `password`) VALUES ("admin", "超级管理员", "123456");
+-- 默认密码 123456
+INSERT INTO users(`username`, `nickname`, `password`) VALUES ("admin", "超级管理员", "{bcrypt}$2a$10$O74vu.NBMUjb6xM8F6jkyePieDy/S6qbTf.VxOcab.XkhPX.g7x4S");
 
 
