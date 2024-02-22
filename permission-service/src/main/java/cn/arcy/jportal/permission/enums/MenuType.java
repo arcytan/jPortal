@@ -1,8 +1,10 @@
 package cn.arcy.jportal.permission.enums;
 
 import cn.arcy.jportal.common.enums.AbstractEnum;
+import cn.arcy.jportal.common.enums.EnumGenericAttributeConverter;
 import cn.arcy.jportal.common.utils.EnumUtil;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import jakarta.persistence.Converter;
 import lombok.Getter;
 
 @Getter

@@ -14,7 +14,7 @@ public class CodeToEnumConverterFactory implements ConverterFactory<Integer, Abs
         return new CodeToEnum(targetType);
     }
 
-    private class CodeToEnum<T extends Enum<T> & AbstractEnum> implements Converter<Integer, T> {
+    private static class CodeToEnum<T extends Enum<T> & AbstractEnum> implements Converter<Integer, T> {
 
         private final Class<T> enumType;
 

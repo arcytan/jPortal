@@ -4,7 +4,7 @@ import cn.arcy.jportal.common.enums.AbstractEnum;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 
-@Converter
+@Converter()
 public class EnumConverter implements AttributeConverter<Enum<?>, Integer> {
     @Override
     public Integer convertToDatabaseColumn(Enum<?> attribute) {

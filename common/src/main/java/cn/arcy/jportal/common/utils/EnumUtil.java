@@ -10,7 +10,7 @@ public class EnumUtil {
 
     public static <T extends AbstractEnum> T codeOf(Class<T> enumClass, int code)
     {
-        return Arrays.stream(enumClass.getEnumConstants())
+        return (T) Arrays.stream(enumClass.getEnumConstants())
                 .filter(Objects::nonNull)
                 .filter(o -> o.getCode() == code)
                 .findFirst()
