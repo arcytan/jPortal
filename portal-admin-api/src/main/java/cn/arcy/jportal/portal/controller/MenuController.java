@@ -3,6 +3,7 @@ package cn.arcy.jportal.portal.controller;
 import cn.arcy.jportal.permission.domain.entity.PermissionMenu;
 import cn.arcy.jportal.permission.service.MenuService;
 import cn.arcy.jportal.portal.dto.MenuDto;
+import cn.arcy.jportal.portal.dto.MenuUpdateDto;
 import cn.arcy.jportal.portal.exception.DefaultHttpException;
 import cn.arcy.jportal.portal.exception.RecordNotFoundException;
 import cn.arcy.jportal.portal.mapstruct.PermissionMenuMapStruct;
@@ -49,11 +50,11 @@ public class MenuController {
 
     @PutMapping("/{id}")
     @ApiOperation("修改菜单")
-    public MenuVo update(@PathVariable("id") Long id, @RequestBody MenuDto menuDto)
+    public MenuVo update(@PathVariable("id") Long id, @RequestBody MenuUpdateDto menuUpdateDto)
     {
-        PermissionMenu menuEntity = new PermissionMenu();
-        menuEntity.setId(id);
-        PermissionMenu entity = menuService.update(menuMapStruct.partialUpdate(menuDto, menuEntity));
+        PermissionMenu entity = menuMapStruct.toEntity(menuUpdateDto);
+        entity.setId(id);
+        entity = menuService.update(entity);
         return menuMapStruct.toMenuVo(entity);
     }
 
