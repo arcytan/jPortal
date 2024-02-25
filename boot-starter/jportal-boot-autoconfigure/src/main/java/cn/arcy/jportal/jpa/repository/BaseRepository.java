@@ -1,4 +1,4 @@
-package cn.arcy.jportal.autoconfigure.jpa.repository;
+package cn.arcy.jportal.jpa.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;

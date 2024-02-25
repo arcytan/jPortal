@@ -1,4 +1,4 @@
-package cn.arcy.jportal.autoconfigure.jpa;
+package cn.arcy.jportal.jpa;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;

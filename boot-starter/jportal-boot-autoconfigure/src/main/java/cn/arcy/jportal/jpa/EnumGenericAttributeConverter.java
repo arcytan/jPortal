@@ -1,5 +1,6 @@
-package cn.arcy.jportal.common.enums;
+package cn.arcy.jportal.jpa;
 
+import cn.arcy.jportal.common.enums.AbstractEnum;
 import cn.arcy.jportal.common.utils.EnumUtil;
 import cn.arcy.jportal.common.utils.ParameterizedTypeReference;
 import jakarta.persistence.AttributeConverter;
