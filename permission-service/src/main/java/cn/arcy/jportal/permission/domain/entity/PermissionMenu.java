@@ -1,5 +1,6 @@
 package cn.arcy.jportal.permission.domain.entity;
 
+import cn.arcy.jportal.jpa.entity.BaseEntity;
 import cn.arcy.jportal.permission.enums.MenuType;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -11,7 +12,7 @@ import java.time.LocalDateTime;
 @Setter
 @Entity
 @Table(name = "permission_menus")
-public class PermissionMenu {
+public class PermissionMenu extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -34,11 +35,5 @@ public class PermissionMenu {
 
     @Column(name = "disabled", nullable = false)
     private Boolean disabled = false;
-
-    @Column(name = "created_at", insertable = false, updatable = false)
-    private LocalDateTime createdAt = LocalDateTime.now();
-
-    @Column(name = "updated_at", insertable = false, updatable = false)
-    private LocalDateTime updatedAt = LocalDateTime.now();
 
 }

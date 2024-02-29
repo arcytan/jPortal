@@ -1,5 +1,6 @@
 package cn.arcy.jportal.user.domain.entity;
 
+import cn.arcy.jportal.jpa.entity.SoftDeleteEntity;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -8,10 +9,7 @@ import java.time.LocalDateTime;
 @Data
 @Entity
 @Table(name = "users")
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+public class User extends SoftDeleteEntity {
 
     String username;
 

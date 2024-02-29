@@ -14,6 +14,7 @@ import cn.hutool.core.util.ObjectUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
@@ -30,6 +31,7 @@ import java.util.Set;
 
 @Api("用户认证")
 @RestController
+@Scope
 @RequestMapping("/api/auth")
 public class AuthenticationController {
 
