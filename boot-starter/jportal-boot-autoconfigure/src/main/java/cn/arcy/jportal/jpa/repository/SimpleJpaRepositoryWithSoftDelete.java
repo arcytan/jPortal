@@ -22,7 +22,7 @@ public class SimpleJpaRepositoryWithSoftDelete<T extends SoftDeleteEntity, ID> e
 
     @Override
     public long delete(Specification<T> spec) {
-
+        findOne(spec);
         return super.delete(spec);
     }
 }
