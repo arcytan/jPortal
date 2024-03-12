@@ -15,6 +15,7 @@ import jakarta.inject.Inject;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -34,6 +35,11 @@ public class MenuController {
     {
         PermissionMenu entity = menuService.insert(menuMapStruct.toEntity(menuDto));
         return menuMapStruct.toMenuVo(entity);
+    }
+
+    public List<MenuVo> list(@RequestParam("page") int page, @RequestParam("pageSize") int pageSize)
+    {
+        return null;
     }
 
     @GetMapping("/{id}")
