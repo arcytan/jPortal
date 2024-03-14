@@ -1,30 +1,34 @@
 package cn.arcy.jportal.portal.util.tree;
 
-import cn.hutool.core.lang.func.Func;
+import cn.arcy.jportal.common.utils.function.FunctionSerializable;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 public class TreeBuilder<T, ID> {
 
     private final List<T> data;
 
-    private final Supplier<ID> field;
+    private final Function<T, ID> idField;
 
-    public TreeBuilder(List<T> data, Supplier<ID> field)
+    private final Function<T, ID> parentField;
+
+    public TreeBuilder(List<T> data, FunctionSerializable<T, ID> idField, FunctionSerializable<T, ID> parentField)
     {
         this.data = data;
-        this.field = field;
+        this.idField = idField;
+        this.parentField = parentField;
     }
 
 
 
-    private List<TreeModel<T, ID>> toTreeModels(List<T> data)
+    /*private List<TreeModel<T, ID>> toTree(List<T> data)
     {
-        ArrayList<TreeModel<T, ID>> treeModels = new ArrayList<>();
-        for (T item )
-        treeModels.add(TreeModel.builder().id())
-    }
+        ArrayList<TreeModel<T, ID>> tree = new ArrayList<>();
+        //将原生的列表数据，转化为TreeModel对象列表
+        data.stream().filter(Objects::nonNull).map(item -> {
+            TreeModel.builder().id()
+        })
+    }*/
 }
