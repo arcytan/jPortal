@@ -17,10 +17,10 @@ public class UserMenuController {
     @Inject
     PermissionMenuRepository menuRepository;
 
-    @GetMapping("/")
+    /*@GetMapping("/")
 
     public UserMenuVo getUserMenu()
     {
 
-    }
+    }*/
 }

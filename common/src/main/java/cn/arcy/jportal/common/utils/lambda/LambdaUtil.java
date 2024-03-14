@@ -1,15 +1,14 @@
 package cn.arcy.jportal.common.utils.lambda;
 
 import cn.arcy.jportal.common.exceptions.LambdaParseException;
-import cn.arcy.jportal.common.utils.ObjectUtil;
 import cn.arcy.jportal.common.utils.function.FunctionSerializable;
 import cn.hutool.core.lang.Assert;
-import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 
 import java.lang.invoke.SerializedLambda;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.Objects;
 
 @Slf4j
 public class LambdaUtil {
@@ -37,6 +36,7 @@ public class LambdaUtil {
             SerializedLambda lambda = (SerializedLambda) method.invoke(func);
             Class<?> instantiatedMethodTypeClass = getInstantiatedMethodTypeClass(lambda);
             Assert.notNull(instantiatedMethodTypeClass, "无法获取lambda表达式的具体类型！");
+            Objects.requireNonNull()
 
             return new LambdaInfo<>(lambda.getImplMethodName(), (Class<T>) instantiatedMethodTypeClass);
         } catch (Throwable e) {
