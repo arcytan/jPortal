@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 
 @Getter
 @AllArgsConstructor
-public class LambdaInfo<T> {
+public final class LambdaInfo<T> {
 
     private String methodName;
 

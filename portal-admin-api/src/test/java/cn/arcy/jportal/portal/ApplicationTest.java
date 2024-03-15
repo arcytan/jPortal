@@ -5,6 +5,7 @@ import cn.arcy.jportal.permission.domain.entity.PermissionMenu;
 import cn.arcy.jportal.permission.enums.MenuType;
 import cn.arcy.jportal.permission.repository.PermissionMenuRepository;
 import cn.arcy.jportal.portal.util.tree.TreeBuilder;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -37,10 +38,12 @@ public class ApplicationTest {
 
     }
 
+    @Test
     public void test()
     {
         List<PermissionMenu> menuList = permissionMenuRepository.findAll();
         TreeBuilder<PermissionMenu, Long> treeBuilder = new TreeBuilder<>(menuList, PermissionMenu::getId, PermissionMenu::getParentId);
+        treeBuilder.toTree();
     }
 
     public static class One
