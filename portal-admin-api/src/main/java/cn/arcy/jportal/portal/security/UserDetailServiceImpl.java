@@ -1,6 +1,7 @@
 package cn.arcy.jportal.portal.security;
 
 import cn.arcy.jportal.portal.exception.AuthenticationException;
+import cn.arcy.jportal.portal.exception.UserNotFoundException;
 import cn.arcy.jportal.user.domain.entity.User;
 import cn.arcy.jportal.user.service.UserService;
 import cn.hutool.core.util.ObjectUtil;
@@ -33,6 +34,11 @@ public class UserDetailServiceImpl implements UserDetailsService {
             throw new UsernameNotFoundException("用户名不存在！");
         }
 
-        return new UserDetail(user.get(), Collections.emptyList());
+        User userEntity = user.get();
+        if (userEntity.getDisabled()) {
+            throw new UserNotFoundException("用户已被禁止！");
+        }
+
+        return new UserDetail(userEntity, Collections.emptyList());
     }
 }

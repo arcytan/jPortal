@@ -1,25 +1,26 @@
 package cn.arcy.jportal.portal;
 
-import cn.arcy.jportal.common.utils.EnumUtil;
 import cn.arcy.jportal.permission.domain.entity.PermissionMenu;
-import cn.arcy.jportal.permission.enums.MenuType;
 import cn.arcy.jportal.permission.repository.PermissionMenuRepository;
-import cn.arcy.jportal.portal.util.tree.TreeBuilder;
+import cn.arcy.jportal.common.utils.tree.TreeBuilder;
+import cn.arcy.jportal.common.utils.tree.TreeModel;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 @SpringBootTest
 public class ApplicationTest {
 
     @Autowired
     PermissionMenuRepository permissionMenuRepository;
+
+    @Autowired
+    ObjectMapper objectMapper;
 
     public static void main(String[] args) throws InvocationTargetException, IllegalAccessException, NoSuchMethodException {
         /*MenuType[] values = MenuType.values();
@@ -39,11 +40,12 @@ public class ApplicationTest {
     }
 
     @Test
-    public void test()
-    {
+    public void test() throws JsonProcessingException {
         List<PermissionMenu> menuList = permissionMenuRepository.findAll();
         TreeBuilder<PermissionMenu, Long> treeBuilder = new TreeBuilder<>(menuList, PermissionMenu::getId, PermissionMenu::getParentId);
-        treeBuilder.toTree();
+        List<TreeModel<PermissionMenu, Long>> trees = treeBuilder.toTree();
+
+        String s = objectMapper.writeValueAsString(trees);
     }
 
     public static class One

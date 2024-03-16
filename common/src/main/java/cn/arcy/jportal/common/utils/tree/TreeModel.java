@@ -1,4 +1,4 @@
-package cn.arcy.jportal.portal.util.tree;
+package cn.arcy.jportal.common.utils.tree;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -6,20 +6,17 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class TreeModel<T, ID> {
 
-    @Getter
     private ID id;
 
-    @Getter
     private ID parentId;
 
-    @Getter
     private T info;
 
-    @Getter
     private List<TreeModel<T, ID>> children;
 
     public void setId(ID id)

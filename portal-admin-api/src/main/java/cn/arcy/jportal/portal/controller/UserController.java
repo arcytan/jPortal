@@ -6,6 +6,8 @@ import cn.arcy.jportal.portal.util.SessionContextUtil;
 import cn.arcy.jportal.portal.vo.UserVo;
 import cn.arcy.jportal.user.domain.entity.User;
 import cn.arcy.jportal.user.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +25,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/user")
+@Api("用户管理")
 public class UserController {
 
     @Autowired
@@ -32,6 +35,7 @@ public class UserController {
     UserService userService;
 
     @GetMapping("/{id}")
+    @ApiOperation("获取用户信息")
     public UserVo info(@PathVariable("id") Long id, Authentication authentication)
     {
         Optional<User> userOp = userService.findById(id);
@@ -43,11 +47,12 @@ public class UserController {
         return userVo;
     }
 
-    @GetMapping
+    @GetMapping("/")
+    @ApiOperation("获取用户列表")
     public List<UserVo> list()
     {
-        List<User> users = userService.selectAll();
-        return userMapStruct.toUserVoList(users);
+
+        return null;
     }
 
 }

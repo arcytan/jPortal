@@ -6,6 +6,8 @@ import cn.arcy.jportal.portal.dto.MenuUpdateDto;
 import cn.arcy.jportal.portal.vo.MenuVo;
 import org.mapstruct.*;
 
+import java.util.List;
+
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface PermissionMenuMapStruct {
 
@@ -16,6 +18,8 @@ public interface PermissionMenuMapStruct {
     MenuDto toMenuDto(PermissionMenu permissionMenu);
 
     MenuVo toMenuVo(PermissionMenu permissionMenu);
+
+    List<MenuVo> toMenuVoList(List<PermissionMenu> permissionMenuList);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     PermissionMenu partialUpdate(MenuDto menuDto, @MappingTarget PermissionMenu permissionMenu);

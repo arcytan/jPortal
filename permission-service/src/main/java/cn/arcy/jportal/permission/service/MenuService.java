@@ -1,13 +1,17 @@
 package cn.arcy.jportal.permission.service;
 
 import cn.arcy.jportal.common.exceptions.RecordNotExistException;
+import cn.arcy.jportal.common.utils.tree.TreeBuilder;
+import cn.arcy.jportal.common.utils.tree.TreeModel;
 import cn.arcy.jportal.permission.domain.entity.PermissionMenu;
 import cn.arcy.jportal.permission.enums.MenuType;
 import cn.arcy.jportal.permission.repository.PermissionMenuRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.inject.Inject;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -15,6 +19,9 @@ public class MenuService {
 
     @Inject
     private PermissionMenuRepository menuRepository;
+
+    @Inject
+    private ObjectMapper objectMapper;
 
     public PermissionMenu insert(PermissionMenu permissionMenu)
     {
@@ -66,5 +73,10 @@ public class MenuService {
             throw new RecordNotExistException("存在子菜单，请先删除子菜单！");
         }
         menuRepository.deleteById(id);
+    }
+
+    public List<PermissionMenu> findAllEnabled()
+    {
+        return menuRepository.findAllByDisabledOrderBySortAsc(false);
     }
 }

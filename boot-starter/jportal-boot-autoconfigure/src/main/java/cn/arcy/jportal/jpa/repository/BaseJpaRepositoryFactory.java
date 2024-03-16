@@ -20,13 +20,13 @@ public class BaseJpaRepositoryFactory extends JpaRepositoryFactory {
 
     @Override
     protected JpaRepositoryImplementation<?, ?> getTargetRepository(RepositoryInformation information, EntityManager entityManager) {
-        System.out.println(information.getDomainType());
+        //System.out.println(information.getDomainType());
         return super.getTargetRepository(information, entityManager);
     }
 
     @Override
     protected Class<?> getRepositoryBaseClass(RepositoryMetadata metadata) {
-        System.out.println("ddd：" + metadata.getDomainType());
+        //System.out.println("ddd：" + metadata.getDomainType());
         return super.getRepositoryBaseClass(metadata);
     }
 }

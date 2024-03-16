@@ -4,6 +4,7 @@ import cn.arcy.jportal.user.domain.entity.User;
 import cn.arcy.jportal.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -40,7 +41,7 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public List<User> selectAll()
+    public List<User> findAll(PageRequest pageRequest)
     {
         return userRepository.findAll();
     }
