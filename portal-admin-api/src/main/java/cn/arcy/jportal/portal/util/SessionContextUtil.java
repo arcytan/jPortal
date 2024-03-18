@@ -1,5 +1,6 @@
 package cn.arcy.jportal.portal.util;
 
+import cn.arcy.jportal.common.utils.ApplicationContextUtil;
 import cn.arcy.jportal.portal.exception.UserNotFoundException;
 import cn.arcy.jportal.portal.security.UserDetail;
 import org.springframework.security.core.Authentication;

@@ -1,5 +1,6 @@
 package cn.arcy.jportal.user.service;
 
+import cn.arcy.jportal.jpa.AbstractService;
 import cn.arcy.jportal.user.domain.entity.User;
 import cn.arcy.jportal.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +12,15 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class UserService extends AbstractService<UserRepository, User, Long> {
 
     @Autowired
     UserRepository userRepository;
+
+    @Override
+    public UserRepository getRepository() {
+        return this.userRepository;
+    }
 
     public User save(User user)
     {

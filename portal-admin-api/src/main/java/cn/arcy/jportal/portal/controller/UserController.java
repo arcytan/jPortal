@@ -10,6 +10,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.core.Authentication;
@@ -49,10 +50,10 @@ public class UserController {
 
     @GetMapping("/")
     @ApiOperation("获取用户列表")
-    public List<UserVo> list()
+    public Page<User> list()
     {
+        Page<User> usersWithPage = userService.findAllWithPage();
 
-        return null;
     }
 
 }

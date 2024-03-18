@@ -1,4 +1,4 @@
-package cn.arcy.jportal.portal.util;
+package cn.arcy.jportal.common.utils;
 
 import lombok.Getter;
 import org.springframework.beans.BeansException;
