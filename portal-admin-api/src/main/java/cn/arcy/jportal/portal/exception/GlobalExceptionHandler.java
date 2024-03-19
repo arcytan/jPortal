@@ -14,6 +14,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.util.ObjectUtils;
 import org.springframework.validation.BindException;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -108,6 +109,18 @@ public class GlobalExceptionHandler {
                                 .code(HttpStatus.BAD_REQUEST.value())
                                 .message(message)
                                 .data(errorResults)
+                                .build()
+                );
+    }
+
+    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+    public ResponseEntity<HttpResult<?>> httpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException e)
+    {
+        return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED)
+                .body(
+                        HttpResult.builder()
+                                .code(HttpStatus.METHOD_NOT_ALLOWED.value())
+                                .message(String.format("请求方法不支持支持[%s]", e.getMethod()))
                                 .build()
                 );
     }

@@ -51,4 +51,31 @@ public class UserService extends AbstractService<UserRepository, User, Long> {
     {
         return userRepository.findAll();
     }
+
+    public User insert(User user)
+    {
+        //判断用户邮箱和用户名的唯一性
+        if (existsByUserName(user.getUsername())) {
+            throw new IllegalArgumentException("用户名已存在！");
+        }
+
+        if (existsByEmail(user.getEmail())) {
+            throw new IllegalArgumentException("邮箱已存在！");
+        }
+        return this.userRepository.save(user);
+    }
+
+    public boolean existsByUserName(String username)
+    {
+        User user = new User();
+        user.setUsername(username);
+        return this.userRepository.exists(Example.of(user));
+    }
+
+    public boolean existsByEmail(String email)
+    {
+        User user = new User();
+        user.setEmail(email);
+        return this.userRepository.exists(Example.of(user));
+    }
 }

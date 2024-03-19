@@ -1,11 +1,8 @@
 package cn.arcy.jportal.portal.util;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Component;
 
-@Component
 public class PasswordEncoderUtil {
 
     public static PasswordEncoder getEncoder()
