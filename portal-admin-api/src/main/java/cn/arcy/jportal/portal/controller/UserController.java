@@ -1,5 +1,6 @@
 package cn.arcy.jportal.portal.controller;
 
+import cn.arcy.jportal.common.utils.PageUtil;
 import cn.arcy.jportal.portal.exception.UserNotFoundException;
 import cn.arcy.jportal.portal.mapstruct.UserMapStruct;
 import cn.arcy.jportal.portal.util.SessionContextUtil;
@@ -50,10 +51,10 @@ public class UserController {
 
     @GetMapping("/")
     @ApiOperation("获取用户列表")
-    public Page<User> list()
+    public Page<UserVo> list()
     {
         Page<User> usersWithPage = userService.findAllWithPage();
-
+        return PageUtil.toPage(usersWithPage, UserVo.class);
     }
 
 }

@@ -1,10 +1,6 @@
 package cn.arcy.jportal.common.page;
 
 import jakarta.servlet.http.HttpServletRequest;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.RequestScope;
@@ -13,12 +9,7 @@ import java.util.Objects;
 
 @Component
 @RequestScope
-//@ToString
 public class PageInfo {
-
-    private Integer pageSize;
-
-    private Integer page;
 
     private final HttpServletRequest request;
 
@@ -36,7 +27,7 @@ public class PageInfo {
             pageSize = Integer.parseInt(pageSizeReq);
         }
 
-        return pageSize;
+        return pageSize == null ? 20 : pageSize;
     }
 
     public Integer getPage()
@@ -47,6 +38,6 @@ public class PageInfo {
             page = Integer.parseInt(pageReq);
         }
 
-        return page;
+        return page == null ? 0 : page;
     }
 }

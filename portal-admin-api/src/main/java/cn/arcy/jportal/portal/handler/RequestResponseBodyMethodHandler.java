@@ -1,12 +1,11 @@
 package cn.arcy.jportal.portal.handler;
 
-import cn.arcy.jportal.portal.util.HttpResult;
+import cn.arcy.jportal.common.utils.response.HttpResult;
 import cn.hutool.core.util.ObjectUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import org.springframework.web.method.support.ModelAndViewContainer;

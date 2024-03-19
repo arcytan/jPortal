@@ -7,7 +7,7 @@ import cn.arcy.jportal.portal.dto.MenuUpdateDto;
 import cn.arcy.jportal.portal.exception.DefaultHttpException;
 import cn.arcy.jportal.portal.exception.RecordNotFoundException;
 import cn.arcy.jportal.portal.mapstruct.PermissionMenuMapStruct;
-import cn.arcy.jportal.portal.util.HttpResult;
+import cn.arcy.jportal.common.utils.response.HttpResult;
 import cn.arcy.jportal.portal.vo.MenuVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -69,7 +69,7 @@ public class MenuController {
     public HttpResult<?> delete(@PathVariable("id") Long id) {
         try {
             menuService.delete(id);
-            return HttpResult.Ok("菜单删除成功！");
+            return HttpResult.ok("菜单删除成功！");
         } catch (RuntimeException e) {
             throw new DefaultHttpException(e.getMessage());
         }

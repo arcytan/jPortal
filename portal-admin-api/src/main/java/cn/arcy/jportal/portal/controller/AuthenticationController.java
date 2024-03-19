@@ -7,8 +7,7 @@ import cn.arcy.jportal.portal.exception.UserNotFoundException;
 import cn.arcy.jportal.portal.mapstruct.AuthMapStruct;
 import cn.arcy.jportal.portal.security.AuthenticationService;
 import cn.arcy.jportal.portal.security.UserDetail;
-import cn.arcy.jportal.portal.util.HttpResult;
-import cn.arcy.jportal.portal.util.SessionContextUtil;
+import cn.arcy.jportal.common.utils.response.HttpResult;
 import cn.arcy.jportal.portal.vo.AuthVo;
 import cn.hutool.core.util.ObjectUtil;
 import io.swagger.annotations.Api;
@@ -81,6 +80,6 @@ public class AuthenticationController {
     public HttpResult<?> token(Authentication authentication)
     {
         Map<String, Object> tokenData = Map.of("token", authenticationService.generateToken(authentication));
-        return HttpResult.Ok("获取成功！", tokenData);
+        return HttpResult.ok("获取成功！", tokenData);
     }
 }

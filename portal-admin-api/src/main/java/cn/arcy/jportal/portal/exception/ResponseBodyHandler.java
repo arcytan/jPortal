@@ -1,7 +1,8 @@
 package cn.arcy.jportal.portal.exception;
 
-import cn.arcy.jportal.portal.util.HttpResult;
+import cn.arcy.jportal.common.utils.response.HttpResult;
 import org.springframework.core.MethodParameter;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -22,6 +23,8 @@ public class ResponseBodyHandler implements ResponseBodyAdvice<Object> {
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
         if (body instanceof HttpResult<?> httpResult) {
             response.setStatusCode(HttpStatus.valueOf(httpResult.getCode()));
+        } else if (body instanceof Page<?> page) {
+            body = HttpResult.page(page, "成功！");
         } else {
             body = HttpResult.builder().code(HttpStatus.OK.value()).message("成功！").data(body).build();
         }
