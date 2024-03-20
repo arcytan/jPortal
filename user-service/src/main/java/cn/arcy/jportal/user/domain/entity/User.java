@@ -20,10 +20,9 @@ public class User extends BaseEntity {
 
     String password;
 
-    Boolean disabled = false;
+    Boolean disabled;
 
-    @Column(updatable = false)
-    LocalDateTime createdAt = LocalDateTime.now();
+    LocalDateTime createdAt;
 
-    LocalDateTime updatedAt = LocalDateTime.now();
+    LocalDateTime updatedAt;
 }
