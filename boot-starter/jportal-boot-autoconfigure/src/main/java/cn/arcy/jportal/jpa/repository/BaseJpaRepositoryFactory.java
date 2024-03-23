@@ -27,6 +27,7 @@ public class BaseJpaRepositoryFactory extends JpaRepositoryFactory {
     @Override
     protected Class<?> getRepositoryBaseClass(RepositoryMetadata metadata) {
         //System.out.println("ddd：" + metadata.getDomainType());
-        return super.getRepositoryBaseClass(metadata);
+        return CustomSimpleJpaRepository.class;
+        //return super.getRepositoryBaseClass(metadata);
     }
 }

@@ -4,6 +4,8 @@ import cn.arcy.jportal.common.page.PageInfo;
 import cn.arcy.jportal.common.utils.ApplicationContextUtil;
 import cn.arcy.jportal.common.utils.PageUtil;
 import cn.arcy.jportal.jpa.repository.BaseRepository;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.springframework.data.domain.*;
 import org.springframework.data.jpa.domain.Specification;
 
@@ -13,6 +15,12 @@ import java.util.Objects;
 public abstract class AbstractService<R extends BaseRepository<T, ID>, T, ID> {
 
     public abstract R getRepository();
+
+    /*protected EntityManager entityManager = ApplicationContextUtil.getBean(EntityManager.class);
+
+    public EntityManager getEntityManager() {
+        return entityManager;
+    }*/
 
     public Page<R> findAllWithPage(Example<T> example, Pageable page, Class<R> toClass)
     {
