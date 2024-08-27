@@ -14,7 +14,7 @@
     <name>user-service</name>
     <groupId>cn.arcy.jportal.user</groupId>
     <artifactId>user-service</artifactId>
-    <version>0.0.1</version>
+    <version>${jportal.version}</version>
     <packaging>jar</packaging>
 
     <dependencies>

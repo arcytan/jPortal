@@ -9,8 +9,11 @@
         <version>0.0.1</version>
     </parent>
 
+    <name>后台WebApi</name>
     <groupId>cn.arcy.jportal.portal</groupId>
     <artifactId>portal-admin-api</artifactId>
+    <version>${jportal.version}</version>
+    <packaging>jar</packaging>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -69,4 +72,21 @@
 
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>repackage</id>
+                        <configuration>
+                            <executable>true</executable>
+                            <classifier>exec</classifier>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
