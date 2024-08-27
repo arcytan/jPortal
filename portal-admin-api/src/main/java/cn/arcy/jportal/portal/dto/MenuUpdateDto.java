@@ -29,6 +29,10 @@ public class MenuUpdateDto {
     @NotEmpty(message = "菜单地址不能为空！")
     String url;
 
+    @ApiModelProperty("是否显式菜单，默认是")
+    Boolean isShow;
+
+
     @ApiModelProperty("排序，号码越低排序越前")
     @Min(value = 1L, message = "排序不能少于1！")
     Integer sort = 1;

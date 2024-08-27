@@ -34,6 +34,9 @@ public class MenuDto implements Serializable {
     @NotNull(message = "菜单类型获取失败！")
     MenuType type = MenuType.PAGE;
 
+    @ApiModelProperty("是否显式菜单，默认是")
+    Boolean isShow;
+
     @ApiModelProperty("菜单地址")
     @NotEmpty(message = "菜单地址不能为空！")
     String url;

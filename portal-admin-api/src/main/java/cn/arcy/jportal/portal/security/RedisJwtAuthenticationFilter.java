@@ -39,6 +39,7 @@ public class RedisJwtAuthenticationFilter extends OncePerRequestFilter {
                 throw new InvalidBearerTokenException("用户认证失败！");
             }
         }
+
         filterChain.doFilter(request, response);
     }
 }

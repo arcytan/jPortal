@@ -23,6 +23,9 @@ public class MenuVo {
     @ApiModelProperty("菜单类型")
     private MenuType type;
 
+    @ApiModelProperty("是否显式菜单，默认是")
+    private Boolean isShow;
+
     @ApiModelProperty("不可用")
     private boolean disabled;
 

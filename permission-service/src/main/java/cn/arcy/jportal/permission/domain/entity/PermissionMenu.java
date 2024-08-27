@@ -25,7 +25,10 @@ public class PermissionMenu extends BaseEntity {
     private Long parentId;
 
     @Column(name = "type", nullable = false)
-    private MenuType type = MenuType.PAGE;
+    private MenuType type;
+
+    @Column(name = "is_show", nullable = true)
+    private Boolean isShow;
 
     @Column(name = "url")
     private String url;
@@ -34,6 +37,6 @@ public class PermissionMenu extends BaseEntity {
     private Integer sort = 1;
 
     @Column(name = "disabled", nullable = false)
-    private Boolean disabled = false;
+    private Boolean disabled;
 
 }
