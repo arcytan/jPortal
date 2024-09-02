@@ -7,13 +7,12 @@
         <groupId>cn.arcy.jportal</groupId>
         <artifactId>boot-starter</artifactId>
         <version>0.0.1</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <name>jpa-starter</name>
     <groupId>cn.arcy.jportal.starter</groupId>
     <artifactId>jpa-starter</artifactId>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>

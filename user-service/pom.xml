@@ -8,7 +8,6 @@
         <groupId>cn.arcy.jportal</groupId>
         <artifactId>jportal-parent</artifactId>
         <version>0.0.1</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <name>user-service</name>
