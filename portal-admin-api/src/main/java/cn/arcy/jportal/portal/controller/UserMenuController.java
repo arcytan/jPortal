@@ -25,7 +25,7 @@ public class UserMenuController {
     @Inject
     PermissionMenuMapStruct menuMapStruct;
 
-    @GetMapping("/")
+    @GetMapping()
     public List<TreeModel<MenuVo, Long>> getUserMenu()
     {
         List<PermissionMenu> menus = menuService.findAllEnabled();

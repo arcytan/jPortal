@@ -54,7 +54,7 @@ public class UserController {
         return userVo;
     }
 
-    @GetMapping("/")
+    @GetMapping()
     @ApiOperation("获取用户列表")
     public Page<UserVo> list()
     {
@@ -62,7 +62,7 @@ public class UserController {
         return PageUtil.toPage(usersWithPage, UserVo.class);
     }
 
-    @PostMapping("/")
+    @PostMapping()
     @ApiOperation("新增用户")
     public UserVo add(@RequestBody UserDto userDto)
     {

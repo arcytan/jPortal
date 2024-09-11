@@ -29,7 +29,7 @@ public class MenuController {
     @Inject
     private PermissionMenuMapStruct menuMapStruct;
 
-    @PostMapping("/")
+    @PostMapping()
     @ApiOperation("新增菜单")
     public MenuVo add(@Validated @RequestBody MenuDto menuDto)
     {
