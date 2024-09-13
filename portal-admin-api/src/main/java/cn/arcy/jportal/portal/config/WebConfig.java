@@ -1,16 +1,13 @@
 package cn.arcy.jportal.portal.config;
 
-import cn.arcy.jportal.common.enums.AbstractEnum;
 import cn.arcy.jportal.portal.handler.CodeToEnumConverterFactory;
 import com.fasterxml.jackson.databind.*;
-import org.reflections.Reflections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import java.util.List;
-import java.util.Set;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {

@@ -2,8 +2,6 @@ package cn.arcy.jportal.portal.vo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.Data;
 
 import java.time.LocalDateTime;

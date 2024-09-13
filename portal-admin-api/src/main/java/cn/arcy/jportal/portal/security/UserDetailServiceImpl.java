@@ -1,15 +1,10 @@
 package cn.arcy.jportal.portal.security;
 
-import cn.arcy.jportal.portal.exception.AuthenticationException;
 import cn.arcy.jportal.portal.exception.UserNotFoundException;
 import cn.arcy.jportal.user.domain.entity.User;
 import cn.arcy.jportal.user.service.UserService;
-import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import jakarta.annotation.Resource;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

@@ -4,14 +4,11 @@ import cn.arcy.jportal.portal.handler.RequestResponseBodyMethodHandler;
 import cn.hutool.core.util.ObjectUtil;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 //@Component

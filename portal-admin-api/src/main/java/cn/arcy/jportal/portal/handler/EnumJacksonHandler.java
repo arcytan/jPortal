@@ -2,12 +2,9 @@ package cn.arcy.jportal.portal.handler;
 
 import cn.arcy.jportal.common.enums.AbstractEnum;
 import cn.arcy.jportal.common.utils.EnumUtil;
-import cn.arcy.jportal.permission.enums.MenuType;
 import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.exc.StreamConstraintsException;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.deser.ContextualDeserializer;
 import lombok.AllArgsConstructor;

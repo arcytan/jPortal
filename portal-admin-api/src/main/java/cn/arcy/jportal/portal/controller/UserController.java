@@ -4,7 +4,6 @@ import cn.arcy.jportal.common.utils.PageUtil;
 import cn.arcy.jportal.portal.dto.UserDto;
 import cn.arcy.jportal.portal.exception.UserNotFoundException;
 import cn.arcy.jportal.portal.mapstruct.UserMapStruct;
-import cn.arcy.jportal.portal.util.SessionContextUtil;
 import cn.arcy.jportal.portal.vo.UserVo;
 import cn.arcy.jportal.user.domain.entity.User;
 import cn.arcy.jportal.user.service.UserService;
@@ -14,16 +13,10 @@ import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 @RestController

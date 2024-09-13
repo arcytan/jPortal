@@ -1,11 +1,9 @@
 package cn.arcy.jportal.portal.dto;
 
-import cn.arcy.jportal.permission.enums.MenuType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import lombok.Value;
 import org.hibernate.validator.constraints.Length;
 
