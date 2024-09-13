@@ -69,7 +69,10 @@
             <groupId>cn.arcy.jportal.common</groupId>
             <artifactId>common</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>cn.arcy.jportal.jobexecutor</groupId>
+            <artifactId>job-executor</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

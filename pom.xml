@@ -29,6 +29,7 @@
         <module>boot-starter</module>
         <module>portal-admin-api</module>
         <module>common</module>
+        <module>job-executor</module>
     </modules>
 
     <dependencyManagement>
@@ -82,6 +83,11 @@
                 <artifactId>common</artifactId>
                 <version>${jportal.version}</version>
             </dependency>
+            <dependency>
+                <groupId>cn.arcy.jportal.jobexecutor</groupId>
+                <artifactId>job-executor</artifactId>
+                <version>${jportal.version}</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/cn.hutool/hutool-core -->
             <dependency>
                 <groupId>cn.hutool</groupId>
@@ -109,6 +115,12 @@
                 <version>0.10.2</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/com.xuxueli/xxl-job-core -->
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>2.4.1</version>
+            </dependency>
 
             <!-- 数据库DDL管理 -->
             <dependency>

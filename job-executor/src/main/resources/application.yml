@@ -1,20 +1,13 @@
+# web port
 server:
-  port: 8063
-spring:
-  datasource:
-    url: jdbc:mysql://127.0.0.1:3306/jportal?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
-    username: root
-    password: 123456
-  jpa:
-    show-sql: true
-  data:
-    redis:
-      host: 127.0.0.1
-      repositories:
-        enabled: false
-jwt:
-  private.key: classpath:rsa_private_key.pem
-  public.key: classpath:rsa_public_key.pem
+  port: 8081
+# no web
+#spring.main.web-environment=false
+
+# log config
+logging:
+  config: classpath:logback.xml
+
 
 ### xxl-job admin address list, such as "http://address" or "http://address01,http://address02"
 xxl:
