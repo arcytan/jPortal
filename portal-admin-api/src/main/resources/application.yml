@@ -2,25 +2,25 @@ server:
   port: 8063
 spring:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/jportal?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    url: jdbc:mysql://192.168.2.103:3306/jportal?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
     username: root
     password: 123456
   jpa:
     show-sql: true
   data:
     redis:
-      host: 127.0.0.1
+      host: 192.168.2.103
       repositories:
         enabled: false
 jwt:
   private.key: classpath:rsa_private_key.pem
   public.key: classpath:rsa_public_key.pem
 
-### xxl-job admin address list, such as "http://address" or "http://address01,http://address02"
+## xxl-job admin address list, such as "http://address" or "http://address01,http://address02"
 xxl:
   job:
     admin:
-      addresses: http://127.0.0.1:8080/xxl-job-admin
+      addresses: http://192.168.2.103:8099/xxl-job-admin
     ### xxl-job, access token
     accessToken: default_token
     executor:
@@ -29,7 +29,7 @@ xxl:
       ### xxl-job executor registry-address: default use address to registry , otherwise use ip:port if address is null
       address:
       ### xxl-job executor server-info
-      ip:
+      ip: 192.168.2.103
       port: 8089
       ### xxl-job executor log-path
       logpath: /data/applogs/xxl-job/jobhandler

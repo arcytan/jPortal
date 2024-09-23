@@ -23,6 +23,7 @@ public class HttpResult<T> implements Serializable {
     String message;
     T data;
 
+    @Builder.Default
     Map<String, Object> fields = new HashMap<>();
 
     public static HttpResult<?> ok(String message, @Nullable Map<String, Object> data)

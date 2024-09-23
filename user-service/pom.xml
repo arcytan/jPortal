@@ -13,7 +13,6 @@
     <name>user-service</name>
     <groupId>cn.arcy.jportal.user</groupId>
     <artifactId>user-service</artifactId>
-    <version>${jportal.version}</version>
     <packaging>jar</packaging>
 
     <dependencies>

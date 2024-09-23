@@ -12,13 +12,10 @@
     <name>后台WebApi</name>
     <groupId>cn.arcy.jportal.portal</groupId>
     <artifactId>portal-admin-api</artifactId>
-    <version>${jportal.version}</version>
     <packaging>jar</packaging>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <main.class>cn.arcy.jportal.portal.PortalAdminApplication</main.class>
     </properties>
 
     <dependencies>
@@ -87,6 +84,38 @@
                             <executable>true</executable>
                             <classifier>exec</classifier>
                         </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.4.3</version>
+                <configuration>
+                    <from>
+                        <image>docker://debian-jdk:jdk21</image>
+                    </from>
+                    <!--<to>
+                        &lt;!&ndash;suppress UnresolvedMavenProperty &ndash;&gt;
+                        <image>dockerhub.dev.dop/${project.artifactId}:${git.commit.id.abbrev}</image>
+                    </to>-->
+                    <container>
+                        <creationTime>USE_CURRENT_TIMESTAMP</creationTime>
+                        <mainClass>${main.class}</mainClass>
+                        <entrypoint>
+                            <arg>/bin/sh</arg>
+                            <arg>-c</arg>
+                            <arg>java -cp /app/resources/:/app/classes/:/app/libs/* ${main.class}</arg>
+                        </entrypoint>
+                    </container>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>buildTar</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
