@@ -16,6 +16,7 @@ import java.io.IOException;
 
 /**
  * 处理枚举类的json序列化和反序列化
+ * 将枚举类转换为对应的code和name
  */
 @JsonComponent
 public class EnumJacksonHandler {
